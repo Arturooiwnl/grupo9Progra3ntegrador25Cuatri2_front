@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parcial</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script defer src="js/main.js" ></script>
+</head>
+<body>
+    <header>
+            <nav>
+                <h1>Fruteria</h1>
+                <p id="user-info">Bienvenido Usuario: <span id="user-info-span"></span></p>
+                <input id="filter-input" type="text" placeholder="Search your product...">
+                <p id="cart-counter">carrito: <span id="cart-counter-span">0</span>Productos</p>
+            </nav>
+    </header>
+    <hr>
+    <hr>
+    <hr>
+
+    <main>
+        <h2>Nuestras frutas</h2>
+    <hr>
+    <hr>
+    <hr>
+        <section id="product-list" class="products"></section>
+    <hr>
+    <hr>
+    <hr>
+    <section id="cart-section">
+            <div id="cart-counter-div">
+                <h4>carrito</h4>
+                <div id="ul-carrito-div">
+                    <ul id="cart-items"><li></li></ul>
+                </div>
+                <p id="total">Total $0</p>
+            </div>
+        </section>
+        <div>
+            <button id="reset-cart">Reset carrito</button>
+        </div>
+    </main>
+
+    <footer>
+    </footer>
+</body>
+</html>
