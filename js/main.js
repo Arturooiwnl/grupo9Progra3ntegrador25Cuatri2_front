@@ -50,14 +50,29 @@ function mostrarProductos(array) {
     productList.innerHTML = htmlProductos;
 }
 
-// ejercicio 4 funcion de filtro con input
+//funcion de filtro con input
 
+let todosLosProductos = [];
 const filterInput = document.getElementById("filter-input")
 
+async function obtenerProductos() {
+    try {
+        let response = await fetch(`${url}/productos`);
+        let data = await response.json();
+
+        todosLosProductos = data.payload
+        console.log("Productos guardados: ",todosLosProductos);
+
+        mostrarProductos(todosLosProductos);
+    } catch (error) {
+        console.error("ocurrio un error: ", error);
+    }
+}
+
 filterInput.addEventListener("input", () => {
-    const text = filterInput.value.toLowerCase()
-    const filteredList = frutas.filter(fruta => fruta.nombre.toLowerCase().includes(text))  // filtro el array para incluir solo aquellas cuyo nombre contiene el texto buscado.
-    renderProducts(filteredList) // aca renderizo mi array filtrado
+    const text = filterInput.value.toLowerCase();
+    const filteredList = todosLosProductos.filter(producto => producto.nombre.toLowerCase().includes(text));  // filtro el array para incluir solo aquellas cuyo nombre contiene el texto buscado.
+    mostrarProductos(filteredList) // aca renderizo mi array filtrado
 })
 
 
@@ -119,7 +134,8 @@ function init() {
 
     imprimirDatosAlumno()
     mostrarCarrito();
-    obtenerProductos()
+    obtenerProductos();
+
 }
 
 init()

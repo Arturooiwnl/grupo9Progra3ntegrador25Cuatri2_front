@@ -61,11 +61,11 @@ h4 {
     border: 2px solid white ;
     padding: 6px;
     border-radius: 8px;
-    color: rgb(4, 104, 71);
+    color: rgb(255, 255, 255);
 }
 
 #cart-counter-span {
-    color: rgb(245, 5, 5);
+    color: rgb(255, 0, 0);
 }
 
 #cart-section {
