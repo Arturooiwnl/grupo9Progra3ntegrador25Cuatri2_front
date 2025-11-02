@@ -1,22 +1,4 @@
 
-//ejercicio 1 Crea un array de objetos con 13 frutas. Cada objeto debe tener las siguientes claves...
-
-const frutas = [
-    {id: 1,nombre: "Anana",precio: 2.1,img: "/image/anana.jpg"},
-    {id: 2,nombre: "Arandano",precio: 5000,img: "/image/arandano.jpg"},
-    {id: 3,nombre: "Banana",precio: 1000,img: "/image/banana.jpg"},
-    {id: 4,nombre: "Frambuesa",precio: 4000,img: "/image/frambuesa.png"},
-    {id: 5,nombre: "Frutilla",precio: 3000,img: "/image/frutilla.jpg"},
-    {id: 6,nombre: "Kiwi",precio: 2000,img: "/image/kiwi.jpg"},
-    {id: 7,nombre: "Mandarina",precio: 800,img: "/image/mandarina.jpg"},
-    {id: 8,nombre: "Manzana",precio: 1500,img: "/image/manzana.jpg"},
-    {id: 9,nombre: "Naranja",precio: 9000,img: "/image/naranja.jpg"},
-    {id: 10,nombre: "Pera",precio: 2500,img: "/image/pera.jpg"},
-    {id: 11,nombre: "Pomelo-amarillo",precio: 3000,img: "/image/pomelo-amarillo.jpg"},
-    {id: 12,nombre: "Pomelo-rojo",precio: 2000,img: "/image/pomelo-rojo.jpg"},
-    {id: 13,nombre: "sandia",precio: 2000,img: "/image/sandia.jpg"},
-]; 
-
 //ejercicio 2. imprimir datos de obj alumno y mostrarlo por consola y html. 
 
 const alumno = {dni: 22222222, nombre: "jonatan", apellido: "quiroga"}
