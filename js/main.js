@@ -43,6 +43,7 @@ function mostrarProductos(array) {
                 <h3>${prod.nombre}</h3>
                 <p> id: ${prod.id}</p>
                 <p>${prod.precio}</p>
+                <button onclick="addToCart(${prod.id})">agregar al carrito</button>
             </div>
         `;
     });
