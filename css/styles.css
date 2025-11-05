@@ -12,9 +12,27 @@ header {
 nav {
     background-color: rgb(60, 61, 60);
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
     width: 100%;
+}
+
+.nav-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-bot-ul {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+}
+
+.nav-bot-ul li a {
+    text-decoration: none;
+    font-weight: bolder;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color:rgb(124, 124, 225);
+    font-size: 1.5rem;
 }
 
 #user-info {
@@ -106,7 +124,7 @@ h4 {
     width: 100%;
     max-width: 250px;
     height: 250px;
-    object-fit: contain; /* Mantiene proporción sin recortar */
+    object-fit: contain;
     border-radius: 8px;
     background-color: white;
     padding: 10px;
