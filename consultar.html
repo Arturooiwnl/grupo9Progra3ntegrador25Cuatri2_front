@@ -3,34 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tp Integrador Front</title>
+    <title>Tp integrador Front</title>
     <link rel="stylesheet" href="css/styles.css">
-    <link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/dark.css'>
-
+    <script defer src="js/main.js" ></script>
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <a href="index.html">
-                    <li>Ver</li>
-                </a>
-                <a href="consultar.html">
-                    <li>Consultar id</li>
-                </a>
-                <a href="crear.html">
-                    <li>Crear</li>
-                </a>
-                <a href="modificar.html">
-                    <li>Modificar</li>
-                </a>
-                <a href="eliminar.html">
-                    <li>Eliminar</li>
-                </a>
-            </ul>
-        </nav>
+            <nav>
+
+                <div id="nav-top" class="nav-top">
+                    <a href="index.html" class="logo-link"><h1>Tienda Koopa troopa</h1></a>
+                    <p id="user-info">Bienvenido Usuario: <span id="user-info-span"></span></p>
+                    <input id="filter-input" type="text" placeholder="Search your product...">
+                    <p id="cart-counter">carrito: <span id="cart-counter-span">0</span>Productos</p>
+                </div>
+
+                <div id="nav-bot" class="nav-bot">
+                    <ul id="nav-bot-ul" class="nav-bot-ul">
+                        <li><a href="index.html">Ver Productos</a></li>
+                        <li><a href="consultar.html">Consultar</a></li>
+                        <li><a href="crear.html">Crear</a></li>
+                        <li><a href="modificar.html">Modificar</a></li>
+                        <li><a href="eliminar.html">Eliminar</a></li>
+                    </ul>
+                </div>
+
+            </nav>
     </header>
+    <hr>
+    <hr>
+    <hr>
+
     <main>
+        <h2>Tienda Koopa troopa</h2>
+    <hr>
+    <hr>
+    <hr>
         <h1>Consultar producto por id</h1>
 
         <form id="getProduct-form">
