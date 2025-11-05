@@ -94,6 +94,8 @@ function addToCart(id) { // con esta funcion agrego un producto al carrito, actu
     localStorage.setItem("cart", JSON.stringify(cart));// aca parseo mi array de obj a texto plano para q local storage lo guarde. el objetivo es q los datos persistan entre refrescos de pagina
 }
 
+
+
 function mostrarCarrito() {
     cartItems.innerHTML = "";
     let total = 0;
@@ -109,15 +111,31 @@ function mostrarCarrito() {
         </li>`;
         console.log(item.nombre);
     })
-    totalGasto.textContent = `Total: $${total.toFixed(2)}`; // aca asigno el valor de la variable total al contenido del elemento html
-    cartCounter.textContent = `${cart.length} `
+
+    mostrarTotal(total);
+    actualizarContadorCarrito();
 }
+
+
+function mostrarTotal(total) {
+    totalGasto.textContent = `Total: $${total.toFixed(2)}`; // aca asigno el valor de la variable total al contenido del elemento html
+}
+
+
+
+function actualizarContadorCarrito() {
+    cartCounter.textContent = `${cart.length} `;
+}
+
+
 
 function removeSingleItem(index) {
     cart.splice(index,1)
     mostrarCarrito()
     localStorage.setItem("cart", JSON.stringify(cart))
 }
+
+
 
 function resetCart() { // reseteo mi carrito, utilizando el metodo removeItem de localstorage.
     cart = []
@@ -132,7 +150,6 @@ resetButton.addEventListener("click", resetCart);
 
 
 function init() {
-
     imprimirDatosAlumno()
     obtenerProductos(); //cargo desde mi backend
     mostrarCarrito();
