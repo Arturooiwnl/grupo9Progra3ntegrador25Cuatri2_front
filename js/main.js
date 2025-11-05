@@ -84,25 +84,27 @@ filterInput.addEventListener("input", () => {
 const cartItems = document.getElementById("cart-items");
 let cart = JSON.parse(localStorage.getItem("cart")) || []; // ejercicio 6. parseao a json para q lo pueda leer sino no lo puedo usar. de texto plano a jason
 let cartCounter = document.getElementById("cart-counter-span");// ejercicio 7. contador de productos en mi carrito
-
-
+console.log("cartCounter:", cartCounter);
 const totalGasto = document.getElementById("total");
 
 function addToCart(id) { // con esta funcion agrego un producto al carrito, actualizo el total y renderizo la lista
-    const fruta = frutas.find(fruta => fruta.id === id) // con el metodo find recorro el array usando el id
-    cart.push(fruta); // lo q encuentro lo agrego con push
+    const producto = todosLosProductos.find(prod => prod.id === id); // con el metodo find recorro el array usando el id
+    cart.push(producto); // lo q encuentro lo agrego con push
     mostrarCarrito(); // aca muestro mi carrito ya actualizado
-    localStorage.setItem("cart", JSON.stringify(cart))// aca parseo mi array de obj a texto plano para q local storage lo guarde. el objetivo es q los datos persistan entre refrescos de pagina
+    localStorage.setItem("cart", JSON.stringify(cart));// aca parseo mi array de obj a texto plano para q local storage lo guarde. el objetivo es q los datos persistan entre refrescos de pagina
 }
 
 function mostrarCarrito() {
-    cartItems.innerHTML = ""
-    let total = 0
+    cartItems.innerHTML = "";
+    let total = 0;
+
     cart.forEach((item,index) => {
-        total += item.precio;
+        const precioNum = Number(item.precio) || 0;
+        total += precioNum;
+
         cartItems.innerHTML += 
         `<li class="bloque-item">
-            <p class="nombre-item">${item.nombre} - ${item.precio}</p>
+            <p class="nombre-item">${item.nombre} - ${precioNum}</p>
             <button class="boton-eliminar" onclick="removeSingleItem(${index})">Eliminar</button>
         </li>`;
         console.log(item.nombre);
@@ -119,11 +121,9 @@ function removeSingleItem(index) {
 
 function resetCart() { // reseteo mi carrito, utilizando el metodo removeItem de localstorage.
     cart = []
-    total = 0
     localStorage.removeItem("total")
     localStorage.removeItem("cart")
     mostrarCarrito();   //llamo a mis funciones para q renderizen el estado actual de las variables
-    mostrarTotal(); 
 }
 
 const resetButton = document.getElementById("reset-cart");
@@ -134,9 +134,8 @@ resetButton.addEventListener("click", resetCart);
 function init() {
 
     imprimirDatosAlumno()
+    obtenerProductos(); //cargo desde mi backend
     mostrarCarrito();
-    obtenerProductos();
-
 }
 
 init()
