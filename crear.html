@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tp integrador Front</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script defer src="js/main.js" ></script>
+</head>
+<body>
+    <header>
+            <nav>
+
+                <div id="nav-top" class="nav-top">
+                    <a href="index.html" class="logo-link"><h1>Tienda Koopa troopa</h1></a>
+                    <p id="user-info">Bienvenido Usuario: <span id="user-info-span"></span></p>
+                    <input id="filter-input" type="text" placeholder="Search your product...">
+                    <p id="cart-counter">carrito: <span id="cart-counter-span">0</span>Productos</p>
+                </div>
+
+                <div id="nav-bot" class="nav-bot">
+                    <ul id="nav-bot-ul" class="nav-bot-ul">
+                        <li><a href="index.html">Ver Productos</a></li>
+                        <li><a href="consultar.html">Consultar</a></li>
+                        <li><a href="crear.html">Crear</a></li>
+                        <li><a href="modificar.html">Modificar</a></li>
+                        <li><a href="eliminar.html">Eliminar</a></li>
+                    </ul>
+                </div>
+
+            </nav>
+    </header>
+    <hr>
+    <hr>
+    <hr>
+
+    <main>
+        <h2>Tienda Koopa troopa</h2>
+    <hr>
+    <hr>
+    <hr>
+        <h1>Crear producto</h1>
+
+        <form id="altaProducts-container">
+            <label for="nameProd">Nombre</label>
+            <input type="text" name="nameProd" id="nameProd" required>
+            
+            <label for="imageProduct">Imagen</label>
+            <input type="text" name="image" id="imageProd" required>
+            
+            <label for="price">Precio</label>
+            <input type="number" name="price" id="priceProd" required>
+
+            <label for="categoryProd">Categoria</label>
+            <select name="category" id="categoryProd">
+                <option value="card">play</option>
+                <option value="card">xbox</option>
+                <option value="card">nint</option>
+            </select>
+
+            <input type="submit" value="Crear producto">
+        </form>
+
+        <hr>
+        <section id="contenedor-productos"></section>
+    </main>
+
+    <footer>
+    </footer>
+    <script src="js/consultar.js"></script>
+</body>
+</html>
