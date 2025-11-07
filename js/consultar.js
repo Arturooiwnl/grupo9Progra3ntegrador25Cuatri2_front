@@ -43,18 +43,8 @@ getProductForm.addEventListener("submit", async (event) => {
     listaProductos.innerHTML = htmlProducto;
 
 
-
-
-/*==========================
-    Que es FormData?
-============================
-
+/*
 FormData es una interfaz nativa de JavaScript que permite crear un conjunto de pares clave-valor 
 que representan los campos de un formulario HTML y sus respectivos valores.
-
-Esta clase se utiliza principalmente para capturar y enviar datos de formularios, 
-ya sea mediante métodos como fetch o XMLHttpRequest, 
-y se encarga de formatear los datos correctamente como multipart/form-data, 
-estableciendo automáticamente los encabezados necesarios para el envío
 */
     });
