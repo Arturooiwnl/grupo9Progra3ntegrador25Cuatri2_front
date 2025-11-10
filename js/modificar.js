@@ -36,7 +36,7 @@ getProductForm.addEventListener("submit", async (event) => {
                 <p>Id: ${producto.id} / Nombre: ${producto.nombre} / <strong>Precio: ${producto.precio}</strong></p>
         </li>
         <li class="li-botonera">
-            <input type="button" id="updateProduct_button" value="Actualizar producto">
+            <input type="button" id="updateProduct_button" value="Actualizar producto" class="btn-form">
         </li>
     `;
 
