@@ -35,7 +35,7 @@ getProductForm.addEventListener("submit", async (event) => {
 
     let htmlProducto = `
     <li class="li-producto">
-            <img src="http://localhost:3500/uploads/${producto.imagen}" alt="${producto.nombre}">
+            <img class="producto-img" src="http://localhost:3500/uploads/${producto.imagen}" alt="${producto.nombre}">
             <p>Id: ${producto.id} / Nombre: ${producto.nombre} / <strong>Precio: ${producto.precio}</strong></p>
     </li>
     `;
