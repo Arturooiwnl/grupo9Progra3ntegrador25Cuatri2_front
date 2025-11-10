@@ -5,30 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tp integrador Front</title>
     <link rel="stylesheet" href="css/styles.css">
-
+    <script defer src="js/navbar.js" ></script>
 </head>
 <body>
-    <header>
-            <nav>
+    <header class="header">
+        <nav class="navbar">
+            <div class="navbar-top">
+                <a href="index.html" class="navbar-top_logo">
+                    <h1>Tienda Koopa Troopa</h1>
+                </a>
 
-                <div id="nav-top" class="nav-top">
-                    <a href="index.html" class="logo-link"><h1>Tienda Koopa troopa</h1></a>
-                    <p id="user-info">Bienvenido Usuario: <span id="user-info-span"></span></p>
-                    <input id="filter-input" type="text" placeholder="Search your product...">
-                    <p id="cart-counter">carrito: <span id="cart-counter-span">0</span>Productos</p>
-                </div>
+                <p class="navbar-top_user">
+                    Bienvenido Usuario: <span class="navbar-top_user-name" id="userName"></span>
+                </p>
 
-                <div id="nav-bot" class="nav-bot">
-                    <ul id="nav-bot-ul" class="nav-bot-ul">
-                        <li><a href="index.html">Ver Productos</a></li>
-                        <li><a href="consultar.html">Consultar</a></li>
-                        <li><a href="crear.html">Crear</a></li>
-                        <li><a href="modificar.html">Modificar</a></li>
-                        <li><a href="eliminar.html">Eliminar</a></li>
-                    </ul>
-                </div>
+                <input class="navbar-top_search" type="text" placeholder="Search your product..." id="searchInput">
 
-            </nav>
+                <p class="navbar-top_cart">
+                    Carrito: <span class="navbar-top_cart-count" id="cartCount">0</span> Productos
+                </p>
+
+                <button class="navbar-hamburger" id="hamburger" aria-label="Menú">
+                    <span class="navbar-hamburger_line"></span>
+                    <span class="navbar-hamburger_line"></span>
+                    <span class="navbar-hamburger_line"></span>
+                </button>
+            </div>
+
+            <div class="navbar-bottom" id="navMenu">
+                <ul class="navbar-bottom_list">
+                    <li class="navbar-bottom_item"><a href="index.html" class="navbar-bottom_link">Ver Productos</a></li>
+                    <li class="navbar-bottom_item"><a href="consultar.html" class="navbar-bottom_link">Consultar</a></li>
+                    <li class="navbar-bottom_item"><a href="crear.html" class="navbar-bottom_link">Crear</a></li>
+                    <li class="navbar-bottom_item"><a href="modificar.html" class="navbar-bottom_link">Modificar</a></li>
+                    <li class="navbar-bottom_item"><a href="eliminar.html" class="navbar-bottom_link">Eliminar</a></li>
+                </ul>
+            </div>
+        </nav>
     </header>
     <hr>
     <hr>
