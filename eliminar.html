@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tp integrador Front</title>
     <link rel="stylesheet" href="css/styles.css">
-    <script defer src="js/navbar.js" ></script>
+    <link rel="stylesheet" href="css/navbar.css">
 </head>
 <body>
     <header class="header">
@@ -16,7 +16,7 @@
                 </a>
 
                 <p class="navbar-top_user">
-                    Bienvenido Usuario: <span class="navbar-top_user-name" id="userName"></span>
+                    Bienvenido, <span class="navbar-top_user-name" id="userName"></span>
                 </p>
 
                 <input class="navbar-top_search" type="text" placeholder="Search your product..." id="searchInput">
@@ -52,13 +52,13 @@
     <hr>
     <hr>
     <hr>
-        <h1>Eliminar producto</h1>
+        <h1 class="title-section">Eliminar producto</h1>
 
         <form id="getProduct-form">
             <label for="idProd">Id del producto</label>
             <input type="number" name="idProd" id="idProd" required>
 
-            <input type="submit" value="Consultar producto">
+            <input type="submit" value="Consultar producto" class="btn-form">
         </form>
 
         <hr>

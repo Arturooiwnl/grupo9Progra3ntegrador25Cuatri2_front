@@ -22,7 +22,7 @@ altaProducts_container.addEventListener("submit", async (event) => {
 
     try {
         // En peticiones distintas a GET, tenemos que especificar mas informacion en un parametro de opciones
-        let response = await fetch(`${url}/productos`, {
+        let response = await fetch(`${url}/api/productos`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

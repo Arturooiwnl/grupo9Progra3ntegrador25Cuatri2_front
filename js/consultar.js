@@ -23,28 +23,55 @@ getProductForm.addEventListener("submit", async (event) => {
     let idProd = data.idProd; // Ahora ya tenemos guardado en una variable el valor del campo del formulario
     console.log(idProd);
 
-    console.log(`Realizando una peticion GET a la url ${url}/productos/${idProd}`);
+    console.log(`Realizando una peticion GET a la url ${url}/api/productos/${idProd}`);
 
-    let response = await fetch(`${url}/productos/${idProd}`);
+    let response = await fetch(`${url}/api/productos/${idProd}`);
 
     let datos = await response.json();
 
-    // Extraemos de la respuesta payload, el primer resultado que contiene el objeto que consultamos
-    let producto = datos.payload[0];
-    console.log(producto);
 
+    if(response.ok) {
+        // Extraemos de la respuesta payload, el primer resultado que contiene el objeto que consultamos
+        let producto = datos.payload[0];
+        console.log(producto);
+
+        mostrarProducto(producto);
+
+    } else {
+        console.log(datos);
+        console.log(datos.message);
+
+        mostrarError(datos.message);
+    }
+
+
+});
+
+function mostrarProducto(producto) {
     let htmlProducto = `
     <li class="li-producto">
-            <img src="http://localhost:3500/uploads/${producto.imagen}" alt="${producto.nombre}">
+            <img class="producto-img" src="http://localhost:3500/uploads/${producto.imagen}" alt="${producto.nombre}">
             <p>Id: ${producto.id} / Nombre: ${producto.nombre} / <strong>Precio: ${producto.precio}</strong></p>
     </li>
     `;
 
     listaProductos.innerHTML = htmlProducto;
+}
+
+function mostrarError(message) {
+    listaProductos.innerHTML = `
+        <li class="mensaje-error">
+            <p>
+                <strong>Error:</strong>
+                <span>${message}</span>
+            </p>
+        </li>
+    `;
+}
 
 
 /*
 FormData es una interfaz nativa de JavaScript que permite crear un conjunto de pares clave-valor 
 que representan los campos de un formulario HTML y sus respectivos valores.
 */
-    });
+

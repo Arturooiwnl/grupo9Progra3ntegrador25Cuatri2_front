@@ -21,9 +21,9 @@ getProductForm.addEventListener("submit", async (event) => {
     let idProd = data.idProd; // Ahora ya tenemos guardado en una variable el valor del campo del formulario
     console.log(idProd);
 
-    console.log(`Realizando una peticion GET a la url ${url}/productos/${idProd}`);
+    console.log(`Realizando una peticion GET a la url ${url}/api/productos/${idProd}`);
 
-    let response = await fetch(`${url}/productos/${idProd}`);
+    let response = await fetch(`${url}/api/productos/${idProd}`);
 
     let datos = await response.json();
 
@@ -33,11 +33,11 @@ getProductForm.addEventListener("submit", async (event) => {
 
     let htmlProducto = `
     <li class="li-producto">
-            <img src="http://localhost:3500/uploads/${producto.imagen}" alt="${producto.nombre}">
+            <img class="producto-img" src="http://localhost:3500/uploads/${producto.imagen}" alt="${producto.nombre}">
             <p>Id: ${producto.id} / Nombre: ${producto.nombre} / <strong>Precio: ${producto.precio}</strong></p>
     </li>
     <li class="li-botonera">
-        <input type="button" id="deleteProduct_button" value="Eliminar producto">
+        <input type="button" id="deleteProduct_button" value="Eliminar producto" class="btn-form">
     </li>
     `;
 
@@ -64,7 +64,7 @@ async function eliminarProducto(id) {
     console.log(id); // Confirmo que recibo el id correctamente
 
     try {
-        let response = await fetch(`${url}/productos/${id}`, {
+        let response = await fetch(`${url}/api/productos/${id}`, {
             method: "DELETE"
         });
 

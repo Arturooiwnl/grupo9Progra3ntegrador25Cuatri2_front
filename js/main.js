@@ -1,63 +1,47 @@
 let url = "http://localhost:3500";
 
 
+
 //ejercicio 2. imprimir datos de obj alumno y mostrarlo por consola y html. 
 
 const alumno = {dni: 22222222, nombre: "jonatan", apellido: "quiroga"}
 // mi elemnto html (<span>) donde se inyectaran los datos del alumno. guardo mi obj en una variable para una facil manipulacion(como voy a hacer con muchas cosas en el codigo)
-const userInfo = document.getElementById("userName") 
+const userInfo = document.getElementById("user-info-span") 
 
 function imprimirDatosAlumno() { //una simple funcion q printea lo q quiero concatenado con backticks
     userInfo.textContent = `${alumno.nombre} ${alumno.apellido}`
 }
 
-//ejercicio 3. implementar una funcion q traiga data desde mi backend
+//implementar una funcion q traiga data desde mi backend
 
-const productList = document.getElementById("product-list")
+//const productList = document.getElementById("product-list")
 
-async function obtenerProductos() {
-    try {
-        let response = await fetch(`${url}/productos`);
+// async function obtenerProductos() {
+//     try {
+//         let response = await fetch(`${url}/api/productos`);
         
-        let data = await response.json()
+//         let data = await response.json()
 
-        console.log(data);
-        let productos = data.payload;
-        console.log(productos);
+//         console.log(data);
+//         let productos = data.payload;
+//         console.log(productos);
 
-        mostrarProductos(productos);
+//         mostrarProductos(productos);
 
-    } catch (error) {
-        console.error("error obteniendo productos: ", error);
-    }
-}
-
-function mostrarProductos(array) {
-    let htmlProductos = "";
-
-    array.forEach(prod => {
-        htmlProductos += `
-            <div class="card-products">
-                <img src="${url}/uploads/${prod.imagen}" alt="${prod.nombre}">
-                <h3>${prod.nombre}</h3>
-                <p> id: ${prod.id}</p>
-                <p>${prod.precio}</p>
-                <button onclick="addToCart(${prod.id})">agregar al carrito</button>
-            </div>
-        `;
-    });
-
-    productList.innerHTML = htmlProductos;
-}
+//     } catch (error) {
+//         console.error("error obteniendo productos: ", error);
+//     }
+// }
 
 //funcion de filtro con input
 
 let todosLosProductos = [];
-const filterInput = document.getElementById("searchInput")
+const filterInput = document.getElementById("filter-input")
+const productList = document.getElementById("product-list");
 
 async function obtenerProductos() {
     try {
-        let response = await fetch(`${url}/productos`);
+        let response = await fetch(`${url}/api/productos`);
         let data = await response.json();
 
         todosLosProductos = data.payload
@@ -76,13 +60,34 @@ filterInput.addEventListener("input", () => {
 })
 
 
+function mostrarProductos(array) {
+    let htmlProductos = "";
+
+    array.forEach(prod => {
+        htmlProductos += `
+            <div class="card-products">
+                <img class="producto-img" src="${url}/uploads/${prod.imagen}" alt="${prod.nombre}">
+                <h3>${prod.nombre}</h3>
+                <p> id: ${prod.id}</p>
+                <p>${prod.precio}</p>
+                <button onclick="addToCart(${prod.id})">agregar al carrito</button>
+            </div>
+        `;
+    });
+
+    productList.innerHTML = htmlProductos;
+}
+
+
+
+
 // ejercicio 5 funcionalidad carrito asociada al boton de cada elemnto del carrito.
 // el carrito debe mostrarse por console.log
 
 
 const cartItems = document.getElementById("cart-items");
 let cart = JSON.parse(localStorage.getItem("cart")) || []; // ejercicio 6. parseao a json para q lo pueda leer sino no lo puedo usar. de texto plano a jason
-let cartCounter = document.getElementById("cartCount");// ejercicio 7. contador de productos en mi carrito
+let cartCounter = document.getElementById("cart-counter-span");// ejercicio 7. contador de productos en mi carrito
 console.log("cartCounter:", cartCounter);
 const totalGasto = document.getElementById("total");
 
