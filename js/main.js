@@ -32,6 +32,28 @@ function imprimirDatosAlumno() { //una simple funcion q printea lo q quiero conc
 //         console.error("error obteniendo productos: ", error);
 //     }
 // }
+//     } catch (error) {
+//         console.error("error obteniendo productos: ", error);
+//     }
+// }
+
+function mostrarProductos(array) {
+    let htmlProductos = "";
+
+    array.forEach(prod => {
+        htmlProductos += `
+            <div class="card-products">
+                <img class="producto-img" src="${url}/uploads/${prod.imagen}" alt="${prod.nombre}">
+                <h3>${prod.nombre}</h3>
+                <p> id: ${prod.id}</p>
+                <p>${prod.precio}</p>
+                <button onclick="addToCart(${prod.id})">agregar al carrito</button>
+            </div>
+        `;
+    });
+
+    productList.innerHTML = htmlProductos;
+}
 
 //funcion de filtro con input
 
